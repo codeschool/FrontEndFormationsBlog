@@ -1,6 +1,7 @@
-# Front-end Formations Art Gallery Blog
+# Front-end Formations Blog
 
-This is the example blog used in the challenges for the course.
+This is the example art gallery blog used in the challenges for the 
+course. It is the blog of renowned art gallery critic, Camry Plaza.
 
 ## Versions
 
