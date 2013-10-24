@@ -1,5 +1,64 @@
 @import "normalize.css";
 
+input[type="search"] {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'BebasNeueRegular';
+  src: url('fonts/BebasNeue-webfont.eot');
+  src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/BebasNeue-webfont.woff') format('woff'),
+       url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+       url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DroidSerifRegular';
+  src: url('fonts/DroidSerif-webfont.eot');
+  src: url('fonts/DroidSerif-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/DroidSerif-webfont.woff') format('woff'),
+       url('fonts/DroidSerif-webfont.ttf') format('truetype'),
+       url('fonts/DroidSerif-webfont.svg#DroidSerifRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DroidSerifRegular';
+  src: url('fonts/DroidSerif-Italic-webfont.eot');
+  src: url('fonts/DroidSerif-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/DroidSerif-Italic-webfont.woff') format('woff'),
+       url('fonts/DroidSerif-Italic-webfont.ttf') format('truetype'),
+       url('fonts/DroidSerif-Italic-webfont.svg#DroidSerifItalic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DroidSerifRegular';
+  src: url('fonts/DroidSerif-BoldItalic-webfont.eot');
+  src: url('fonts/DroidSerif-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/DroidSerif-BoldItalic-webfont.woff') format('woff'),
+       url('fonts/DroidSerif-BoldItalic-webfont.ttf') format('truetype'),
+       url('fonts/DroidSerif-BoldItalic-webfont.svg#DroidSerifBoldItalic') format('svg');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DroidSerifRegular';
+  src: url('fonts/DroidSerif-Bold-webfont.eot');
+  src: url('fonts/DroidSerif-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/DroidSerif-Bold-webfont.woff') format('woff'),
+       url('fonts/DroidSerif-Bold-webfont.ttf') format('truetype'),
+       url('fonts/DroidSerif-Bold-webfont.svg#DroidSerifBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
 /* Color Scheme */
 
 /*
@@ -19,23 +78,25 @@ html {
 body {
   background: #ced2c5;
   color: #51524e;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'DroidSerifRegular', Helvetica, Arial, sans-serif;
   font-size: 100%;
   line-height: 1.5;
 }
 
 h1, h2, h3,
 h4, h5, h6 {
+  font-family: 'BebasNeueRegular';
+  font-weight: normal;
   margin: 0 0 10px;
 }
-
 h3 {
-  border-bottom: 1px solid #969c8a;
+  border-bottom: 1px solid #858c78;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+  font-size: 24px;
   margin-bottom: 20px;
-  padding-bottom: 10px;
 }
 
-p {
+p, figure {
   margin: 0 0 20px;
 }
 
@@ -51,6 +112,8 @@ ul, ol {
 
 a {
   color: #c44743;
+  transition: color 0.2s ease-in-out;
+  -webkit-transition: color 0.2s ease-in-out;
 }
 a:hover {
   color: #d56d68;
@@ -74,18 +137,21 @@ a:hover {
 
 .media {
   background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   padding: 5px;
-}
-.media--alt {
-  background: none;
-  margin-bottom: 10px;
-  padding: 0;
 }
 
 .btn {
   background: #c44743;
+  background: linear-gradient(to bottom, #c44743, #a13633);
   border: 0;
+  border: 1px solid #541c1a;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   color: #fff;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -93,14 +159,21 @@ a:hover {
   padding: 5px 25px;
   text-align: center;
   text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.65);
 }
 .btn:hover {
   background: #d56d68;
+  background: linear-gradient(to bottom, #d56d68, #a13633);
   color: #fff;
   text-decoration: none;
 }
+.btn:active {
+  background: #a13633;
+  background: linear-gradient(to bottom, #a13633, #c44743);
+}
 .btn--submit {
-  height: 28px;
+  height: 29px;
+  border-radius: 0 20px 20px 0;
   padding: 0;
   position: absolute;
   right: 0;
@@ -113,9 +186,16 @@ a:hover {
 }
 .input {
   border: 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
-  padding: 5px 45px 5px 5px;
-  width: 155px;
+  padding: 5px 45px 5px 15px;
+  width: 100%;
+}
+.input:focus {
+  box-shadow: 0 0 6px rgba(196, 72, 67, 0.9);
+  outline: none;
 }
 
 .list li {
@@ -131,53 +211,75 @@ a:hover {
 }
 
 .masthead {
-  background: #193441;
+  background: #1e3e4d;
+  background: radial-gradient(circle, #1e3e4d, #102028);
   color: #fff;
   padding: 10px 0 5px;
   text-align: center;
 }
 .masthead h1 {
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
 }
 
 .title {
-  font-size: 40px;
+  font-size: 60px;
 }
 
 .tagline {
-  color: #e3e3e3;
-  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .nav {
   background: #3e606f;
+  background: linear-gradient(#3e606f, #324d59);
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   margin: 0 0 20px;
   text-align: center;
 }
 .nav li {
   display: inline-block;
   list-style-type: none;
-  margin-right: 10px;
-}
-.nav li:last-child {
-  margin-right: 0;
 }
 .nav li a {
-  color: #fff;
+  color: #193441;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
   display: inline-block;
-  font-weight: bold;
+  font-family: 'BebasNeueRegular';
+  font-size: 24px;
+  letter-spacing: 1px;
   padding: 5px 20px;
+  text-align: center;
   text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+  width: 80px;
+}
+.nav li a:hover,
+.nav .active {
+  color: #fff;
 }
 .nav li a:hover {
-  background: #324d59;
+  text-shadow: none;
 }
-.nav .active,
+.nav .active {
+  background: #c44743;
+  background: linear-gradient(to bottom, #c44743, #a13633);
+  border-left: 1px solid #541c1a;
+  border-right: 1px solid #541c1a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #3a1312;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
 .nav .active:hover {
-  background: #ced2c5;
-  color: #193441;
+  color: #3a1312;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .content {
@@ -185,14 +287,20 @@ a:hover {
   overflow: auto;
 }
 
+.main,
+.sidebar {
+  box-sizing: border-box;
+}
+
 .main {
   float: left;
+  padding-right: 5%;
   width: 70%;
 }
 
 .sidebar {
   float: right;
-  width: 25%;
+  width: 30%;
 }
 .sidebar p {
   font-size: 14px;
@@ -210,6 +318,8 @@ a:hover {
 
 .article {
   background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   padding: 20px;
 }
@@ -217,6 +327,7 @@ a:hover {
   padding-top: 10px;
 }
 .article-about img {
+  border-radius: 50%;
   margin-right: 5px;
   position: relative;
   top: 7px;
