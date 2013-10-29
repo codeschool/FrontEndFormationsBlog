@@ -208,31 +208,31 @@ a:hover {
   margin: 0;
 }
 
-.article {
+.post {
   background: #fff;
   margin-bottom: 20px;
   padding: 20px;
 }
-.article-about {
+.post-about {
   padding-top: 10px;
 }
-.article-about img {
+.post-about img {
   margin-right: 5px;
   position: relative;
   top: 7px;
 }
-.article-body {
+.post-body {
   margin-bottom: 20px;
 }
-.article-date {
+.post-date {
   color: #666;
   font-size: 14px;
 }
-.article-lead {
+.post-lead {
   font-size: 18px;
   font-weight: normal;
 }
-.article-title {
+.post-title {
   margin-bottom: 0;
 }
 
